@@ -2,4 +2,4 @@ module demo
 
 go 1.24.4
 
-require golang.org/x/net v0.23.0
+require golang.org/x/net v0.41.0
