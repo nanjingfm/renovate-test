@@ -1,6 +1,44 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
-  ]
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticPrefixFixDepsChoreOthers",
+    "security:openssf-scorecard"
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "description": "安全漏洞立即修复",
+      "isVulnerabilityAlert": true,
+      "prCreation": "immediate",
+      "rangeStrategy": "update-lockfile",
+      "commitMessageSuffix": "[SECURITY]",
+      "automerge": false,
+      "dependencyDashboardApproval": false,
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "Golang依赖项安全更新",
+      "matchDatasources": ["go"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "prCreation": "immediate"
+    },
+    {
+      "description": "Docker镜像安全更新",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "prCreation": "immediate"
+    }
+  ],
+  "schedule": ["at any time"],
+  "timezone": "Asia/Shanghai",
+  "repositoryCache": "enabled",
+  "prHourlyLimit": 10,
+  "prConcurrentLimit": 5
 }
