@@ -2,9 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    ":dependencyDashboard",
-    ":semanticPrefixFixDepsChoreOthers",
-    "security:openssf-scorecard"
+    ":dependencyDashboard"
   ],
   "vulnerabilityAlerts": {
     "enabled": true
