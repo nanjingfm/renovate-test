@@ -8,6 +8,7 @@
     "enabled": true
   },
   "osvVulnerabilityAlerts": true,
-  "prHourlyLimit": 10,
-  "prConcurrentLimit": 5
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "baseBranches": ["main", "/^release\\/.*/"]
 }
