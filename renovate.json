@@ -4,11 +4,24 @@
     "config:recommended",
     ":dependencyDashboard"
   ],
-  "vulnerabilityAlerts": {
-    "enabled": true
-  },
-  "osvVulnerabilityAlerts": true,
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
-  "baseBranches": ["main", "/^release\\/.*/"]
+  "baseBranches": ["main", "/^release\\/.*/"],
+  "postUpdateOptions": ["gomodTidy"],
+  "packageRules": [
+    {
+      "enabled": false,
+      "matchPackageNames": [
+        "*"
+      ]
+    }
+  ],
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "vulnerabilityFixStrategy": "lowest",
+    "labels": ["security"],
+    "automerge": true,
+    "assignees": ["@someone"],
+    "enabled": true
+  }
 }
